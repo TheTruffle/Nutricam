@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Nutricam</string>
+    <string name="app_name">Nutricamv2</string>
+    <string name="mainactivity_button1">SCAN A PRODUCT</string>
+    <string name="mainactivity_button2">VIEW DATABASE</string>
+    <string name="mainactivity_button3">USER INFORMATION</string>
+    <string name="mainactivity_button4">SETTINGS</string>
+
+    <string name="title_activity_sign_up">SignUpActivity</string>
+
+
 </resources>
