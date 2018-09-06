@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     private static final Integer MY_PERMISSIONS_REQUEST_CAMERA = 0;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initializeFields();
         setApplicationPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
         setApplicationPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, 0);
         setApplicationPermissions(Manifest.permission.CAMERA, MY_PERMISSIONS_REQUEST_CAMERA);
@@ -47,6 +49,23 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }).show();
+    }
+
+    private void initializeFields(){
+        findViewById(R.id.btnmain_signup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.btnmain_database).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), DatabaseActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setActivitySettings(){

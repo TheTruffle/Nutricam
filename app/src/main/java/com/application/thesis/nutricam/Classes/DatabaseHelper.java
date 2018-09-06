@@ -23,7 +23,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper{
     private static final String TAG = "SQLite";
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "allergy.sqlite";
+    private static final String DATABASE_NAME = "Nutricam.db";
     @SuppressLint("SdCardPath")
     private final String DATABASE_PATH =
             "/data/data/com.application.thesis.nutricam/databases/";
@@ -52,7 +52,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public List<String> getAllMainCategory(){
         List<String> categoryList = new ArrayList<>();
-        String query = "SELECT category_name FROM category";
+        String query = "SELECT Category_Name FROM Category";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor =  db.rawQuery(query, null);
         if(cursor.moveToFirst()) {
