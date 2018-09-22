@@ -66,6 +66,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.btnmain_userinfo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        findViewById(R.id.btnmain_settings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void setActivitySettings(){

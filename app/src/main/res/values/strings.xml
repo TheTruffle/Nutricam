@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Nutricamv2</string>
+    <string name="sharedpreffile_settings">Settings</string>
+    <string name="sharedpreffile_userdata">UserData</string>
+
     <string name="mainactivity_button1">SCAN A PRODUCT</string>
     <string name="mainactivity_button2">VIEW DATABASE</string>
     <string name="mainactivity_button3">USER INFORMATION</string>

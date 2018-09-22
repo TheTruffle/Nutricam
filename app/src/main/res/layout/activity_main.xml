@@ -4,13 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal|center_vertical"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewTitle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="30dp"
+        android:text="Welcome to Nutricam"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnmain_signup"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_horizontal|center_vertical"
         android:text="Sign Up" />
 
     <Button
@@ -19,4 +30,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
         android:text="View Database" />
+
+    <Button
+        android:id="@+id/btnmain_userinfo"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:text="User Information" />
+
+    <Button
+        android:id="@+id/btnmain_settings"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:text="Settings" />
 </LinearLayout>
