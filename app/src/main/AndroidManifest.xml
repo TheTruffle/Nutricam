@@ -23,7 +23,10 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".UserInfoActivity" />
-        <activity android:name=".DatabaseActivity"></activity>
+        <activity android:name=".DatabaseActivity" />
+        <activity android:name=".Scan1Activity" />
+        <activity android:name=".Scan2Activity" />
+        <activity android:name=".ResultsActivity" />
     </application>
 
 </manifest>

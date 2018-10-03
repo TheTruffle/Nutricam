@@ -4,4 +4,13 @@
     <color name="colorPrimaryDark">#30519e</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black_overlay">#ffffff</color>
+    <color name="windowBackground">#1C1C1C</color>
+
+    <color name="colorButtonNormal">#FFFFFB</color>
+    <color name="textColorPrimary">#FFFFFB</color>
+    <color name="textColorPrimaryInverse">#1C1C1C</color>
+    <color name="overlay">#AA1C1C1C</color>
+    <color name="divider">#333333</color>
+    <color name="colortextbold">#FFFFFF</color>
+
 </resources>

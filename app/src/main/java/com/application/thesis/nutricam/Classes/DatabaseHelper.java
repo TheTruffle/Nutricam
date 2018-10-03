@@ -64,6 +64,20 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return categoryList;
     }
 
+    public List<String> getAllSubCategory(String category){
+        List<String> categoryList = new ArrayList<>();
+        String query = "SELECT SubCategory_Name from SubCategory where ID_Category = '" + category + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor =  db.rawQuery(query, null);
+        if(cursor.moveToFirst()) {
+            do {
+                categoryList.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return categoryList;
+    }
+
     private void createDatabase() throws IOException{
         boolean dbExist = checkDatabase();
         if(!dbExist){

@@ -52,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeFields(){
+        findViewById(R.id.btnmain_scan).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Scan1Activity.class);
+                intent.putExtra("ProcessMode", "nutri");
+                startActivity(intent);
+            }
+        });
         findViewById(R.id.btnmain_signup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnmain_userinfo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(v.getContext(), UserInfoActivity.class);
+                startActivity(intent);
             }
         });
         findViewById(R.id.btnmain_settings).setOnClickListener(new View.OnClickListener() {

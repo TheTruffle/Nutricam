@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
 
@@ -117,7 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void setSharedPreferences(){
         SharedPreferences.Editor editUserData = getSharedPreferences(getString(R.string.sharedpreffile_userdata), MODE_PRIVATE).edit();
         editUserData.putString("name", fieldname.getText().toString());
-        editUserData.putString("age", fieldage.getText().toString());
+        editUserData.putString("dob", fielddob.getText().toString());
         editUserData.putString("sex", fieldsex.getText().toString());
         editUserData.putString("heightcm", fieldhtcm.getText().toString());
         editUserData.putString("weightkg", fieldwtkg.getText().toString());
@@ -188,7 +189,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR))
                     age--;
                 Integer ageInt = age;
-                fieldage.setText(ageInt.toString());
+                fieldage.setText(String.format(Locale.ROOT, "%d", ageInt));
             }
         }, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();

@@ -10,5 +10,23 @@
 
     <string name="title_activity_sign_up">SignUpActivity</string>
 
+    <string name="scan1activity_titlenutri"> Nutrition Facts Guide </string>
+    <string name="scan1activity_instnutri"> Good day! Welcome to the interpretation module.
+        \n\nBefore we begin, we will explain the steps the user must take to complete the interpretation process.
+        \n\nStep 1. Select from one of the buttons below
+        \n--- Choosing CAMERA will open the camera, please take a picture of the Nutrition Facts label
+        \n--- Choosing GALLERY will open the gallery, please select a picture of the Nutrition Facts label
+        \n\nStep 2. Crop the picture taken or selected to show the Nutrition Facts label only
+        \n\nStep 3. (Optional) Confirm the data found in the Nutrition Facts label selected.
+    </string>
 
+    <string name="scan1activity_titleingre"> Ingredients Guide </string>
+    <string name="scan1activity_instingre"> Good day! Welcome to the allergen detection module.
+        \n\nBefore we begin, we will explain the steps the user must take to complete the allergen detection process.
+        \n\nStep 1. Select from one of the buttons below
+        \n--- Choosing CAMERA will open the camera, please take a picture of the ingredients
+        \n--- Choosing GALLERY will open the gallery, please select a picture of the ingredients
+        \n\nStep 2. Crop the picture taken or selected to show the ingredients area only
+        \n\nStep 3. (Optional) Confirm the data found in the ingredients selected.
+    </string>
 </resources>
