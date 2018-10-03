@@ -122,15 +122,6 @@ public class ResultsActivity extends AppCompatActivity {
         }
     }
 
-    private void detectAllergens() throws IOException {
-        for (String ingredient : ingredients) {
-            for (String allergens : user.getFoundAllergens(this)){
-                if(allergens.equals(ingredient))
-                    detectedAllergens.add(ingredient);
-            }
-        }
-    }
-
     private void determinekCalStandard(){
         boolean kCal2000 = false;
         boolean kCal2500 = false;

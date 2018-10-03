@@ -2,7 +2,11 @@
 package com.application.thesis.nutricam.Classes;
 
 
+import android.content.Context;
 import android.util.Log;
+
+import java.io.IOException;
+import java.util.List;
 
 public class StringFinder {
     private String processtype = "";
@@ -36,10 +40,6 @@ public class StringFinder {
                         index = index + 1;
                     }
                 }
-                Log.v("StringFinder Class",
-                        "Source: " + srcString
-                                + " || Found: " + inString
-                                + "|| Score: " + score.toString());
                 if(!score.equals(srcString.length()))
                     if (srcString.length() > inString.length())
                         if (score > srcString.length() / 2)
@@ -136,6 +136,19 @@ public class StringFinder {
         }
 
         return nutriProduct;
+    }
+
+    public List<String> getAllergens(Context context) throws IOException {
+        User user = new User();
+        List<String> allergens = user.getFoundAllergens(context);
+        List<String> listString = null;
+        for (String ingredient: stringcontent) {
+            for (String allergen: allergens) {
+                if (ingredient.toLowerCase().equals(allergen.toLowerCase()))
+                    listString.add(ingredient);
+            }
+        }
+        return listString;
     }
 
     private String convertNonDigits(String string){

@@ -52,12 +52,14 @@ public class Scan2Activity extends AppCompatActivity {
     private String[] resultArray;
     private NutriProduct nutriProduct = new NutriProduct();
     private String ProcessMode = null;
+    private Context context;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan2);
         Intent intent = getIntent();
+        context = this.getApplicationContext();
         bindViews();
         imageUri = intent.getParcelableExtra("imageuri");
         ProcessMode = intent.getStringExtra("ProcessMode");
@@ -259,6 +261,11 @@ public class Scan2Activity extends AppCompatActivity {
                         startActivity(intent);
                     } else if(ProcessMode.equals("ingre")){
                         Intent intent = new Intent(getBaseContext(), ResultsActivity.class);
+                        try {
+                            List<String> listAllergens = stringFinder.getAllergens(context);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         intent.putExtra("NutriProduct", nutriProduct);
                         intent.putExtra("Ingredients", resultArray);
                         intent.putExtra("ProcessMode", "ingre");
