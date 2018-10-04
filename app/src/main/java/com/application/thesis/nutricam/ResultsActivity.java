@@ -21,6 +21,7 @@ public class ResultsActivity extends AppCompatActivity {
     Map<String, EditText> userFields = new HashMap<>();
     Map<String, EditText> standardFields = new HashMap<>();
     Map<String, Double> kCal2000 = new HashMap<>();
+    EditText allergenset;
     String[] fieldList = {"calories", "total fat", "saturated fat", "trans fat"
             , "cholesterol", "sodium", "total carbohydrate", "dietary fiber"
             , "sugars", "protein"};
@@ -32,7 +33,7 @@ public class ResultsActivity extends AppCompatActivity {
     private NutriProduct nutriProduct = new NutriProduct();
     List<String> ingredients;
     List<String> detectedAllergens;
-    String[] allergens;
+    ArrayList<String> allergens = new ArrayList<>();
     User user = new User();
 
     @Override
@@ -41,10 +42,11 @@ public class ResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results);
         Intent intent = getIntent();
         processMode = intent.getStringExtra("ProcessMode");
+        Log.v("Process Mode:", processMode);
         if(processMode.equals("nutri"))
             ;
         else if(processMode.equals("ingre"))
-            allergens = getIntent().getStringArrayExtra("Ingredients");
+            allergens = intent.getStringArrayListExtra("Ingredients");
         nutriProduct = (NutriProduct) getIntent().getSerializableExtra("NutriProduct");
         //ingredients = getIntent().getStringArrayListExtra("Ingredients");
         user.setFromSharedPref(this);
@@ -59,6 +61,12 @@ public class ResultsActivity extends AppCompatActivity {
             userFields.get(string).setText(String.format(Locale.ROOT, "%.2f%%", adjustedValues(string)));
             standardFields.get(string).setText(String.format(Locale.ROOT, "%.2f%%", standardValues(string)));
         }
+        String output = "";
+        for (String string: allergens) {
+            output = string + ", " + output;
+        }
+        allergenset.setText(output);
+
     }
 
     private void initializeValues(){
@@ -96,6 +104,8 @@ public class ResultsActivity extends AppCompatActivity {
         standardFields.put("dietary fiber", (EditText) findViewById(R.id.etdietstand));
         standardFields.put("sugars", (EditText) findViewById(R.id.etsugstand));
         standardFields.put("protein", (EditText) findViewById(R.id.etprotstand));
+
+        allergenset = findViewById(R.id.etallergens);
     }
 
     private Double adjustedValues(String key){
