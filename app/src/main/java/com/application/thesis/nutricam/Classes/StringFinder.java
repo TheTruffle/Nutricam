@@ -1,11 +1,11 @@
 
 package com.application.thesis.nutricam.Classes;
 
-
 import android.content.Context;
 import android.util.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StringFinder {
@@ -20,10 +20,6 @@ public class StringFinder {
 
     public StringFinder() {
         super();
-    }
-
-    public String getProcesstype(){
-        return processtype;
     }
 
     private void cleanArray(){
@@ -50,8 +46,8 @@ public class StringFinder {
     }
 
     public NutriProduct getNutriData(){
-        cleanArray();
         NutriProduct nutriProduct = new NutriProduct();
+        cleanArray();
         String prevString = "";
         Integer index = 0;
         for (String string: stringcontent) {
@@ -138,14 +134,18 @@ public class StringFinder {
         return nutriProduct;
     }
 
-    public List<String> getAllergens(Context context) throws IOException {
+    public ArrayList<String> getAllergens(Context context) throws IOException {
         User user = new User();
-        List<String> allergens = user.getFoundAllergens(context);
-        List<String> listString = null;
+        user.setFromSharedPref(context);
+        ArrayList<String> allergens = user.getFoundAllergens(context);
+        ArrayList<String> listString = new ArrayList<>();
         for (String ingredient: stringcontent) {
             for (String allergen: allergens) {
-                if (ingredient.toLowerCase().equals(allergen.toLowerCase()))
+                if (ingredient.toLowerCase().equals(allergen.toLowerCase())) {
                     listString.add(ingredient);
+                    Log.v("Allergen Match", allergen + "===={" + ingredient + "}");
+                }
+                Log.v("StringFinder", allergen + "===={" + ingredient + "}");
             }
         }
         return listString;
@@ -155,6 +155,13 @@ public class StringFinder {
         String toDigit = "";
         for (Character c : string.toCharArray()) {
             switch (c) {
+                case ' ':
+                    toDigit = toDigit + '0';
+                    break;
+                case 'S' :
+                case 's' :
+                    toDigit = toDigit + '5';
+                    break;
                 case 'O' :
                 case 'o' :
                     toDigit = toDigit + '0';

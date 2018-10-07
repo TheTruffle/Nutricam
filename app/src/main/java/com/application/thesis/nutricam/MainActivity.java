@@ -28,9 +28,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initializeFields();
+
         setApplicationPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, 0);
         setApplicationPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, 0);
         setApplicationPermissions(Manifest.permission.CAMERA, MY_PERMISSIONS_REQUEST_CAMERA);
+
         setActivitySettings();
         if(_firstRun)
             new AlertDialog.Builder(this)

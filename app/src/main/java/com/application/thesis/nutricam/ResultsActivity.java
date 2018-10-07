@@ -72,13 +72,13 @@ public class ResultsActivity extends AppCompatActivity {
     private void initializeValues(){
         kCal2000.put("total fat", 65.0);
         kCal2000.put("saturated fat", 20.0);
-        kCal2000.put("trans fat", 2.0);
+        kCal2000.put("trans fat", 45.0);
         kCal2000.put("cholesterol", 0.3);
         kCal2000.put("sodium", 2.4);
         kCal2000.put("total carbohydrate", 300.0);
         kCal2000.put("dietary fiber", 25.0);
         kCal2000.put("sugars", 25.0);
-        kCal2000.put("protein", 49.6);
+        kCal2000.put("protein", 100.0);
 
         userFields.put("ter", (EditText) findViewById(R.id.etteruser));
         userFields.put("calories", (EditText) findViewById(R.id.etcaluser));

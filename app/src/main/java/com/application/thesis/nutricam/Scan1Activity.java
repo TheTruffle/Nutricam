@@ -38,7 +38,6 @@ public class Scan1Activity extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ;
                         }
                     }).show();
         switch (processType){
@@ -112,5 +111,4 @@ public class Scan1Activity extends AppCompatActivity {
                 break;
         }
     }
-
 }

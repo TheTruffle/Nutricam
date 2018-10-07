@@ -50,8 +50,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public List<String> getAllMainCategory(){
-        List<String> categoryList = new ArrayList<>();
+    public ArrayList<String> getAllMainCategory(){
+        ArrayList<String> categoryList = new ArrayList<>();
         String query = "SELECT Category_Name FROM Category";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor =  db.rawQuery(query, null);
@@ -64,8 +64,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return categoryList;
     }
 
-    public List<String> getAllSubCategory(String category){
-        List<String> categoryList = new ArrayList<>();
+    public ArrayList<String> getAllSubCategory(String category){
+        ArrayList<String> categoryList = new ArrayList<>();
         String query = "SELECT SubCategory_Name from SubCategory where ID_Category = '" + category + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor =  db.rawQuery(query, null);

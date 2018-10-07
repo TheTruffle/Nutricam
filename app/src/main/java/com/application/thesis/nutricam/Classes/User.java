@@ -2,8 +2,10 @@ package com.application.thesis.nutricam.Classes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -144,17 +146,22 @@ public class User {
         return 0.0;
     }
 
-    public List<String> getFoundAllergens(Context context) throws IOException {
-        List<String> returnList = null;
+    //To get allergens and its other names from the database
+    public ArrayList<String> getFoundAllergens(Context context) throws IOException {
+        ArrayList<String> returnList = new ArrayList<String>();
         DatabaseHelper databaseHelper = new DatabaseHelper(context);
         for (String allergy : allergies.split(",\\s+")) {
             for (String mainallergen : databaseHelper.getAllMainCategory()) {
-                if(allergy.equals(mainallergen))
+                Log.v("User Java Allergy Found","{" + allergy + "} == {" + mainallergen + "}");
+                if(allergy.equals(mainallergen)) {
+                    Log.v("Allergen Match Found", allergy);
                     for (String suballergen : databaseHelper.getAllSubCategory(mainallergen)) {
                         returnList.add(suballergen);
+                        Log.v("User Java Allergy Found", returnList.toString());
                     }
+                }
             }
-            returnList.add(allergies);
+            returnList.add(allergy);
         }
         return returnList;
     }
